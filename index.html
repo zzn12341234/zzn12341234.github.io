@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Report Card Access</title>
+  <meta charset="UTF-8">
+  <title>Secure Report Access</title>
 </head>
 <body>
-    <h1>Welcome to Your Report Page</h1>
-    <p>This is a placeholder. You can upload your report later.</p>
+  <h2>Enter Password to Access Your Report</h2>
+  <input type="password" id="passwordInput" placeholder="Enter password">
+  <button onclick="checkPassword()">Submit</button>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById('passwordInput').value;
+      if (input === "20080603") {
+        window.location.href = "report.html";
+      } else {
+        alert("Incorrect password.");
+      }
+    }
+  </script>
 </body>
 </html>

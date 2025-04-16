@@ -1,80 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Secure Report Access</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .container {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 30px;
-      text-align: center;
-      width: 100%;
-      max-width: 400px;
-    }
-
-    h2 {
-      color: #333;
-    }
-
-    input[type="password"] {
-      padding: 10px;
-      width: 80%;
-      margin: 20px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-
-    .error {
-      color: red;
-      font-size: 14px;
-      margin-top: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Report</title>
 </head>
 <body>
-  <div class="container">
-    <h2>Enter Password to Access Your Report</h2>
-    <input type="password" id="passwordInput" placeholder="Enter password">
+    <h2>Enter Password</h2>
+    <input type="password" id="password">
     <button onclick="checkPassword()">Submit</button>
-    <p class="error" id="errorMessage"></p>
-  </div>
+    
+    <div id="file-link" style="display:none;">
+        <a href="YOUR_FILE_LINK_HERE" target="_blank">Click here to view your file</a>
+    </div>
 
-  <script>
-    function checkPassword() {
-      const input = document.getElementById('passwordInput').value;
-      const errorMessage = document.getElementById('errorMessage');
-      if (input === "20080603") {
-        window.location.href = "report.html";
-      } else {
-        errorMessage.textContent = "Incorrect password. Please try again.";
-      }
-    }
-  </script>
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            if (password === '20080603') {  // 输入正确的密码
+                document.getElementById('file-link').style.display = 'block';  // 显示文件链接
+            } else {
+                alert('Incorrect password!');  // 如果密码错误，弹出提示
+            }
+        }
+    </script>
 </body>
 </html>
+
